@@ -19,10 +19,12 @@ common:
   path_db_day: 'C:/Users/Alkor/gd/data_quote_db/{ticker}_futures_day_2025_21-00.db'
   quik_csv_path: 'C:/Users/Alkor/VSCode/pj20_walk-forward/trade/quik_export/minutes.csv'
 
-  stats_date_from: '2025-09-01'
-  stats_date_to: '2027-01-01'
-  backtest_date_from: '2025-09-01'
-  backtest_date_to: '2027-01-01'
+  stats_date_from: '2025-10-01'
+  stats_date_to: '2026-03-31'
+  backtest_date_from: '2026-04-01'
+  backtest_date_to: '2026-04-30'
+  walk_forward_train_months: 3
+  walk_forward_test_days: 30
 
 shared:
   num_mds: 200

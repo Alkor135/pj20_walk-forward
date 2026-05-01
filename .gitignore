@@ -227,7 +227,9 @@ plots/
 log/
 backtest/
 group_stats/
+walk_forward/
 rules.yaml
+/tmp*/
 beget/links.yaml
 buhinvest_analize/*.png
 trade/log/

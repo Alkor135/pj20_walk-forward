@@ -35,6 +35,7 @@ import yaml
 TICKER_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(TICKER_DIR.parent))
 from config_loader import load_settings_for
+from sentiment_forecast import build_next_month_forecast_html
 
 
 def _parse_date(value) -> Optional[date]:
@@ -207,6 +208,7 @@ def _drawdown_duration(drawdown: pd.Series) -> int:
         if duration > max_dd_duration:
             max_dd_duration = duration
     return max_dd_duration
+
 
 
 def build_report(result: pd.DataFrame, ticker: str, model_name: str, output_html: Path, rules_path: Path) -> None:
@@ -596,6 +598,7 @@ def build_report(result: pd.DataFrame, ticker: str, model_name: str, output_html
         width=1500,
         margin=dict(l=20, r=20, t=60, b=20),
     )
+    forecast_html = build_next_month_forecast_html(result)
 
     # ── Сохранение ────────────────────────────────────────────────────────
     output_html.parent.mkdir(parents=True, exist_ok=True)
@@ -607,6 +610,8 @@ def build_report(result: pd.DataFrame, ticker: str, model_name: str, output_html
         f.write(fig_stats.to_html(include_plotlyjs=False, full_html=False))
         f.write("\n<hr style='margin:30px 0; border:1px solid #ccc'>\n")
         f.write(fig_table.to_html(include_plotlyjs=False, full_html=False))
+        f.write("\n<hr style='margin:30px 0; border:1px solid #ccc'>\n")
+        f.write(forecast_html)
         f.write("\n</body></html>")
 
 
