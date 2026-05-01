@@ -216,3 +216,22 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# Generated pipeline artifacts
+*.html
+*.xlsx
+*.pkl
+*.csv
+plots/
+log/
+backtest/
+group_stats/
+rules.yaml
+beget/links.yaml
+buhinvest_analize/*.png
+trade/log/
+trade/state/
+trade/quik_export/*.csv
+trade/quik_export/*.json
+trade/quik_export/*.tmp
